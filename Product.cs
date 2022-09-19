@@ -18,11 +18,23 @@ public class Product
         return $"{Code} - {Name}";
     }
 
+    public string formatCode()
+    {
+        string code = Code.ToString();
+        if (code.Length < 8)
+        {
+            code = code.PadLeft(8, '0');
+            return code;
+        }else
+        {
+            return Code.ToString();
+        }
+    }
 
 
     public Product(string? name, string? description, decimal price, float vat)
     {
-        Code = new Random().Next(1,10000000);
+        Code = new Random().Next(1,1000000);
         Name = name;
         Description = description;
         Price = price;
@@ -31,7 +43,7 @@ public class Product
 
     public Product()
     {
-        Code = new Random().Next(1, 10000000);
+        Code = new Random().Next(1, 1000000);
     }
 
 
