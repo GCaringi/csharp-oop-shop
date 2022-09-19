@@ -1,12 +1,79 @@
 ﻿namespace csharp_oop_shop;
-
 public class Product
-{ 
-    public int Code { get; }
-    public string? Name { get; set; }
-    public string? Description { get; set; }
-    public decimal Price { get; set; }
-    public float Vat { get; set; }
+{
+    private int Code;
+    private string? Name;
+    private string? Description;
+    private decimal Price;
+    private float Vat;
+
+    // CONSTRUCTORS
+
+    public Product(string? name, string? description, decimal price, float vat)
+    {
+        Code = new Random().Next(1, 1000000);
+        Name = name;
+        Description = description;
+        Price = price;
+        Vat = vat;
+    }
+
+    public Product()
+    {
+        Code = new Random().Next(1, 1000000);
+    }
+
+
+    //  GETTERS
+    public int GetCode()
+    {
+        return Code;
+    }
+
+    public string? GetName()
+    {
+        return Name;
+    }
+
+    public string? GetDescription()
+    {
+        return Description;
+    }
+
+    public decimal GetPrice()
+    {
+        return Price;
+    }
+
+    public float GetVat()
+    {
+        return Vat;
+    }
+
+
+    //  SETTERS
+    public void setName(string name)
+    {
+        Name = name;
+    }
+
+    public void setDescription(string description)
+    {
+        Description = description;
+    }
+
+    public void setPrice(decimal price)
+    {
+        Price = price;
+    }
+
+    public void setVat(float vat)
+    {
+        Vat = vat;
+    }
+
+
+    // METHODS
 
     public decimal priceWithVat()
     {
@@ -21,30 +88,16 @@ public class Product
     public string formatCode()
     {
         string code = Code.ToString();
-        if (code.Length < 8)
+        int diff = 8 - code.Length;
+        string res = "";
+        for (int i = 0; i < diff; i++)
         {
-            code = code.PadLeft(8, '0');
-            return code;
-        }else
-        {
-            return Code.ToString();
+            res += '0';
         }
+
+        res += code;
+
+        return res;
     }
-
-
-    public Product(string? name, string? description, decimal price, float vat)
-    {
-        Code = new Random().Next(1,1000000);
-        Name = name;
-        Description = description;
-        Price = price;
-        Vat = vat;
-    }
-
-    public Product()
-    {
-        Code = new Random().Next(1, 1000000);
-    }
-
 
 }
