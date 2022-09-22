@@ -1,15 +1,15 @@
 ﻿namespace csharp_oop_shop;
-public class Product
+public abstract class Product
 {
-    private int Code;
-    private string? Name;
-    private string? Description;
-    private decimal Price;
-    private float Vat;
+    protected int Code { get; set; }
+    protected string? Name { get; set; }
+    protected string? Description { get; set; }
+    protected decimal Price { get; set; }
+    protected float Vat { get; set; }
 
     // CONSTRUCTORS
 
-    public Product(string? name, string? description, decimal price, float vat)
+    protected Product(string? name, string? description, decimal price, float vat)
     {
         Code = new Random().Next(1, 1000000);
         Name = name;
@@ -17,62 +17,7 @@ public class Product
         Price = price;
         Vat = vat;
     }
-
-    public Product()
-    {
-        Code = new Random().Next(1, 1000000);
-    }
-
-
-    //  GETTERS
-    public int GetCode()
-    {
-        return Code;
-    }
-
-    public string? GetName()
-    {
-        return Name;
-    }
-
-    public string? GetDescription()
-    {
-        return Description;
-    }
-
-    public decimal GetPrice()
-    {
-        return Price;
-    }
-
-    public float GetVat()
-    {
-        return Vat;
-    }
-
-
-    //  SETTERS
-    public void setName(string name)
-    {
-        Name = name;
-    }
-
-    public void setDescription(string description)
-    {
-        Description = description;
-    }
-
-    public void setPrice(decimal price)
-    {
-        Price = price;
-    }
-
-    public void setVat(float vat)
-    {
-        Vat = vat;
-    }
-
-
+    
     // METHODS
 
     public decimal priceWithVat()
