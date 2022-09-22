@@ -1,13 +1,11 @@
 ﻿namespace csharp_oop_shop;
 public abstract class Product
 {
-    protected int Code { get; set; }
+    protected int Code;
     protected string? Name { get; set; }
     protected string? Description { get; set; }
     protected decimal Price { get; set; }
     protected float Vat { get; set; }
-
-    // CONSTRUCTORS
 
     protected Product(string? name, string? description, decimal price, float vat)
     {
@@ -18,19 +16,17 @@ public abstract class Product
         Vat = vat;
     }
     
-    // METHODS
-
-    public decimal priceWithVat()
+    protected decimal priceWithVat()
     {
         return Price + (Price * (decimal)Vat);
     }
 
-    public string fullName()
+    protected string fullName()
     {
         return $"{Code} - {Name}";
     }
 
-    public string formatCode()
+    protected string formatCode()
     {
         string code = Code.ToString();
         int diff = 8 - code.Length;
@@ -44,5 +40,6 @@ public abstract class Product
 
         return res;
     }
+
 
 }
