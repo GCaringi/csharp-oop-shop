@@ -5,5 +5,5 @@ Console.WriteLine(lete.ToString());
 
 var lit = lete.Quantity;
 
-Console.WriteLine(Water.LiterToGallon(lit));
+Console.WriteLine($"{lete.Quantity}L = {Water.LiterToGallon(lete.Quantity)}G");
 
