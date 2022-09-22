@@ -1,6 +1,4 @@
-﻿using System.Runtime.Remoting;
-
-namespace csharp_oop_shop;
+﻿namespace csharp_oop_shop;
 
 public class Water : Product, IBootle
 {
@@ -54,7 +52,7 @@ public class Water : Product, IBootle
         
     }
 
-    public void Refill(float quantity)
+    public void Refill()
     {
         AvailableWater = Quantity;
     }
